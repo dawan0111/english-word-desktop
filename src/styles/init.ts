@@ -73,6 +73,25 @@ export const InitGlobalStyled = createGlobalStyle`
   body {
     background-color: ${props => props.theme.colors.sidebarBG};
 
+    .ant-popover-inner {
+      background-color: ${props => lighten(0.06, props.theme.colors.contentBG)};
+      border-radius: 8px;
+
+      .ant-popover-title {
+        color: ${props => props.theme.colors.textColor1};
+        border-color: ${props => props.theme.colors.borderColor};
+        padding: .5rem 1rem;
+      }
+
+      .ant-popover-inner-content {
+        color: ${props => props.theme.colors.textColor1};
+      }
+    }
+
+    .ant-popover-arrow-content::before {
+      background-color: ${props => lighten(0.06, props.theme.colors.contentBG)};
+    }
+
     .ant-switch {
       height: 28px;
       width: 56px;
@@ -410,23 +429,7 @@ export const InitGlobalStyled = createGlobalStyle`
       }
     }
 
-    .ant-popover-inner {
-      background-color: ${props => props.theme.colors.contentBG};
-
-      .ant-popover-title {
-        color: ${props => props.theme.colors.textColor1};
-        border-color: ${props => props.theme.colors.borderColor};
-        padding: .5rem 1rem;
-      }
-
-      .ant-popover-inner-content {
-        color: ${props => props.theme.colors.textColor1};
-      }
-    }
-
-    .ant-popover-arrow-content {
-      background-color: ${props => props.theme.colors.contentBG};
-    }
+    
 
     .ant-modal-header {
       border-radius: 0;
