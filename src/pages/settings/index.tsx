@@ -73,7 +73,11 @@ const Settings = () => {
             아래 링크를 통해 변경된 사항을 확인하실 수 있습니다.
             <br />
             <div className="spacing" />
-            <a href="https://github.com/2skydev/electron-vite-react-ts-template/releases" target="_blank" rel="noreferrer">
+            <a
+              href="https://github.com/2skydev/electron-vite-react-ts-template/releases"
+              target="_blank"
+              rel="noreferrer"
+            >
               앱 릴리즈 목록
             </a>
           </div>
