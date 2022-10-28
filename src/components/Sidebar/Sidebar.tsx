@@ -59,10 +59,7 @@ const Sidebar = ({ className }: SidebarProps) => {
 
   return (
     <SidebarStyled className={clsx('Sidebar', className)}>
-      <div className="logo">
-        <img src={logo} alt="logo" width={35} />
-        AppName
-      </div>
+      <div className="logo">TOEIC STUDY 🔥</div>
 
       <LayoutGroup>
         <div className="menus">
