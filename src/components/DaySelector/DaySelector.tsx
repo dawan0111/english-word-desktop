@@ -9,29 +9,40 @@ import { DaySelectorStyled } from './styled';
 export interface DaySelectorProps {
   className?: string;
   length?: number;
+  start: number | null;
+  end: number | null;
+  onChange?: (start: number | null, end: number | null) => void;
 }
 
-const DaySelector = ({ className, length = 30 }: DaySelectorProps) => {
-  const [startDay, setStartDay] = useState<number | null>(null);
-  const [endDay, setEndDay] = useState<number | null>(null);
+const DaySelector = ({ className, length = 30, start, end, onChange }: DaySelectorProps) => {
+  const [startDay, setStartDay] = useState<number | null>(start);
+  const [endDay, setEndDay] = useState<number | null>(end);
   const [hoverDay, setHoverDay] = useState<number | null>(null);
   const days = Array.from({ length }, (_, i) => i + 1);
   const { colors } = useTheme();
 
   const handleDayClick = (day: number) => {
+    let start = startDay;
+    let end = endDay;
+
     if (startDay === null) {
-      setStartDay(day);
+      start = day;
     } else if (endDay === null) {
       if (day > startDay) {
-        setEndDay(day);
+        end = day;
       } else {
-        setStartDay(day);
-        setEndDay(startDay);
+        start = day;
+        end = startDay;
       }
     } else {
-      setStartDay(day);
-      setEndDay(null);
+      start = day;
+      end = null;
     }
+
+    setStartDay(start);
+    setEndDay(end);
+
+    onChange?.(start, end);
   };
 
   return (

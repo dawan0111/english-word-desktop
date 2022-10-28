@@ -8,28 +8,16 @@ import { WordSearchFormStyled } from './styled';
 
 interface WordSearchFormProps {
   className?: string;
+  formik: ReturnType<typeof useFormik<InitialValues>>;
 }
 
-interface InitialValues {
+export interface InitialValues {
   keyword: string;
   startDay: null | number;
   endDay: null | number;
 }
 
-const _initialValues: InitialValues = {
-  keyword: '',
-  startDay: null,
-  endDay: null,
-};
-
-const WordSearchForm = ({ className }: WordSearchFormProps) => {
-  const formik = useFormik({
-    initialValues: _initialValues,
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
-
+const WordSearchForm = ({ className, formik }: WordSearchFormProps) => {
   return (
     <WordSearchFormStyled className={clsx('WordSearchForm', className)}>
       <div className="left">
@@ -39,7 +27,15 @@ const WordSearchForm = ({ className }: WordSearchFormProps) => {
 
       <form className="right" onSubmit={formik.handleSubmit}>
         <Popover
-          content={<Input placeholder="키워드를 입력해주세요" autoFocus />}
+          content={(
+            <Input
+              name="keyword"
+              placeholder="키워드를 입력해주세요"
+              value={formik.values.keyword}
+              onChange={formik.handleChange}
+              autoFocus
+            />
+          )}
           placement="bottomLeft"
           trigger="click"
           destroyTooltipOnHide
@@ -51,7 +47,9 @@ const WordSearchForm = ({ className }: WordSearchFormProps) => {
         </Popover>
 
         <Popover
-          content={<DaySelector />}
+          content={<DaySelector start={formik.values.startDay} end={formik.values.endDay} onChange={(start, end) => {
+            formik.setValues({ ...formik.values, startDay: start, endDay: end });
+          }} />}
           placement="bottomLeft"
           trigger="click"
           destroyTooltipOnHide
