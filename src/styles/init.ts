@@ -301,6 +301,11 @@ export const InitGlobalStyled = createGlobalStyle`
       color: ${props => props.theme.colors.textColor1};
     }
 
+    .ant-btn-primary {
+      background: ${props => props.theme.colors.primary};
+      color: ${props => props.theme.colors.primaryTextColor};
+    }
+
     // 버튼 상호작용 상태
     .ant-btn:hover, .ant-btn:focus {
       background-color: ${props => lighten(0.15, props.theme.colors.contentBG)};
