@@ -1,61 +1,39 @@
-import Button from 'antd/lib/button';
 import styled from 'styled-components';
 
 export const WordSearchFormStyled = styled.div`
   display: flex;
   align-items: center;
-  gap: 1rem;
-  width: 100%;
-  height: 60px;
+  justify-content: space-between;
 
-  .searchInputWrap,
-  .searchTermWrap {
+  > .left {
+    .title {
+      margin: 0;
+    }
+    .total {
+      opacity: 0.7;
+    }
+  }
+
+  > .right {
     display: flex;
-    align-items: center;
-    height: 100%;
-  }
 
-  .searchInputWrap {
-    .ant-select {
-      width: 140px;
-    }
-    .ant-select-selector {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-    .ant-input {
-      width: 340px;
-      border-left: none;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-  }
+    > .item {
+      display: flex;
+      align-items: center;
+      border-radius: 8px;
+      height: 3rem;
+      padding: 0 1.5rem;
+      cursor: pointer;
+      transition: 500ms all;
 
-  .searchTermWrap {
-    gap: 0.5rem;
-    .ant-input {
-      width: 100px;
+      + .item {
+        margin-left: 1.5rem;
+      }
+
+      > .bx {
+        margin-right: 0.5rem;
+        margin-left: -0.3rem;
+      }
     }
-  }
-
-  .submitButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.25rem;
-    width: 160px;
-    font-size: 1.05rem;
-  }
-
-  .ant-input,
-  .ant-select,
-  .ant-select .ant-select-selector,
-  .ant-select .ant-select-selector .ant-select-selection-search-input,
-  .submitButton {
-    height: 100%;
-  }
-  .ant-select .ant-select-selector .ant-select-selection-item {
-    display: flex;
-    align-items: center;
   }
 `;
