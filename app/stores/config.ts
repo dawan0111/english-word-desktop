@@ -1,3 +1,4 @@
+import { nativeTheme } from 'electron';
 import Store from 'electron-store';
 
 export interface ConfigStoreValues {
@@ -12,7 +13,7 @@ export const configStore = new Store<ConfigStoreValues>({
   accessPropertiesByDotNotation: false,
   defaults: {
     general: {
-      theme: 'dark',
+      theme: nativeTheme.shouldUseDarkColors ? 'dark' : 'light',
       developerMode: false,
     },
   },
