@@ -34,7 +34,7 @@ const Content = ({ className, children }: ContentProps) => {
         </motion.span>
       </div>
 
-      <div className="content">
+      <div id="content" className="content">
         <AnimatePresence>
           <motion.div
             key={pathname}

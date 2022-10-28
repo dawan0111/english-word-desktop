@@ -9,22 +9,20 @@ const Index = () => {
   const formik = useFormik<InitialValues>({
     initialValues: {
       keyword: '',
-      startDay: null,
-      endDay: null,
+      startDay: 1,
+      endDay: 3,
     },
     onSubmit: values => {
       alert(JSON.stringify(values, null, 2));
     },
   });
 
-  console.log(formik.values);
-
   return (
     <IndexPageStyled>
       <LayoutConfig breadcrumbs={['메인페이지']} />
 
       <WordSearchForm formik={formik} />
-      <WordSearchList startDay={15} endDay={15} />
+      <WordSearchList startDay={formik.values.startDay || 1} endDay={formik.values.endDay || 1} />
     </IndexPageStyled>
   );
 };

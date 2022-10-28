@@ -21,8 +21,7 @@ const WordSearchForm = ({ className, formik }: WordSearchFormProps) => {
   return (
     <WordSearchFormStyled className={clsx('WordSearchForm', className)}>
       <div className="left">
-        <h1 className="title">토익 영단어 목록</h1>
-        <div className="total">2,400개의 결과 찾음</div>
+        <h1 className="title">{formik.values.startDay} ~ {formik.values.endDay}Days 토익 영단어</h1>
       </div>
 
       <form className="right" onSubmit={formik.handleSubmit}>

@@ -36,7 +36,7 @@ export const DaySelectorStyled = styled.div`
         position: absolute;
         top: 0;
         left: 0;
-        background-color: ${props => props.theme.colors.contentBG};
+        background-color: ${props => props.theme.colors.contentBG}55;
         width: 100%;
         height: 100%;
         border-radius: 8px;
